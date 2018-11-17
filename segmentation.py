@@ -56,9 +56,4 @@ def semi_supervised(X, sigma2, label, num_class, m, dt, mu,
             is_pure = False
         u = u1
     return u1
-        
-    
-    
-    
-    
     

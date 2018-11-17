@@ -49,7 +49,3 @@ def build_similarity_graph(X, sigma2, graph_type='knn', graph_thresh=10,
         raise ValueError("Wrong argument returned None")
         
     return W
-    
-
-
-

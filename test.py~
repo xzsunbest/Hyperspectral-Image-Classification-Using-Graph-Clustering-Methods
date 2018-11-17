@@ -1,2 +1,0 @@
-import numpy as np
-from build_laplacian import nystrom_extension

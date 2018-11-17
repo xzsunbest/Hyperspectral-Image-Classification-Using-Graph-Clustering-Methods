@@ -43,6 +43,8 @@ def compute_eig(W, m, lap_type='sym'):
     """
     L = build_laplacian(W, lap_type)
     S, V = np.linalg.eig(L)
+    print(S.shape)
+    print(V.shape)
     ind = np.argsort(S)
     S = S[ind]
     V = V[:, ind]
@@ -75,8 +77,8 @@ def nystrom_extension(X, m, sigma2, cosine=False, lap_type='sym'):
         simXY = sc.cdist(Xm, Xnm, 'cosine', np.float64)
         simXX = sc.cdist(Xm, Xm, 'cosine', np.float64)
     else:
-        simXX = sc.cdist(Xm, Xm, 'sceuclidean', np.float64)
-        simXY = sc.cdist(Xm, Xnm, 'sceuclidean', np.float64)
+        simXX = sc.cdist(Xm, Xm, 'sqeuclidean', np.float64)
+        simXY = sc.cdist(Xm, Xnm, 'sqeuclidean', np.float64)
     Wxx = np.exp(-simXX/(2*sigma2))
     Wxy = np.exp(-simXY/(2*sigma2))
     Wyx = Wxy.T
